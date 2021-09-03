@@ -1,0 +1,167 @@
+{
+  "location": "eastus",
+  "tags": {},
+  "properties": {
+      "name": "hr-dev-web-vmss-autoscale-profiles",
+      "enabled": true,
+      "predictiveAutoscalePolicy": {
+          "scaleMode": "Disabled"
+      },
+      "targetResourceUri": "/subscriptions/82808767-144c-4c66-a320-b30791668b0a/resourceGroups/hr-dev-rg-tceaqd/providers/Microsoft.Compute/virtualMachineScaleSets/hr-dev-web-vmss",
+      "profiles": [
+          {
+              "name": "default",
+              "capacity": {
+                  "minimum": "2",
+                  "maximum": "6",
+                  "default": "2"
+              },
+              "rules": [
+                  {
+                      "scaleAction": {
+                          "direction": "Increase",
+                          "type": "ChangeCount",
+                          "value": "1",
+                          "cooldown": "PT5M"
+                      },
+                      "metricTrigger": {
+                          "metricName": "Percentage CPU",
+                          "metricNamespace": "microsoft.compute/virtualmachinescalesets",
+                          "metricResourceUri": "/subscriptions/82808767-144c-4c66-a320-b30791668b0a/resourceGroups/hr-dev-rg-tceaqd/providers/Microsoft.Compute/virtualMachineScaleSets/hr-dev-web-vmss",
+                          "operator": "GreaterThan",
+                          "statistic": "Average",
+                          "threshold": 75,
+                          "timeAggregation": "Average",
+                          "timeGrain": "PT1M",
+                          "timeWindow": "PT5M",
+                          "Dimensions": [],
+                          "dividePerInstance": false
+                      }
+                  },
+                  {
+                      "scaleAction": {
+                          "direction": "Decrease",
+                          "type": "ChangeCount",
+                          "value": "1",
+                          "cooldown": "PT5M"
+                      },
+                      "metricTrigger": {
+                          "metricName": "Percentage CPU",
+                          "metricNamespace": "microsoft.compute/virtualmachinescalesets",
+                          "metricResourceUri": "/subscriptions/82808767-144c-4c66-a320-b30791668b0a/resourceGroups/hr-dev-rg-tceaqd/providers/Microsoft.Compute/virtualMachineScaleSets/hr-dev-web-vmss",
+                          "operator": "LessThan",
+                          "statistic": "Average",
+                          "threshold": 25,
+                          "timeAggregation": "Average",
+                          "timeGrain": "PT1M",
+                          "timeWindow": "PT5M",
+                          "Dimensions": [],
+                          "dividePerInstance": false
+                      }
+                  },
+                  {
+                      "scaleAction": {
+                          "direction": "Increase",
+                          "type": "ChangeCount",
+                          "value": "1",
+                          "cooldown": "PT5M"
+                      },
+                      "metricTrigger": {
+                          "metricName": "Available Memory Bytes",
+                          "metricNamespace": "microsoft.compute/virtualmachinescalesets",
+                          "metricResourceUri": "/subscriptions/82808767-144c-4c66-a320-b30791668b0a/resourceGroups/hr-dev-rg-tceaqd/providers/Microsoft.Compute/virtualMachineScaleSets/hr-dev-web-vmss",
+                          "operator": "LessThan",
+                          "statistic": "Average",
+                          "threshold": 1073741824,
+                          "timeAggregation": "Average",
+                          "timeGrain": "PT1M",
+                          "timeWindow": "PT5M",
+                          "Dimensions": [],
+                          "dividePerInstance": false
+                      }
+                  },
+                  {
+                      "scaleAction": {
+                          "direction": "Decrease",
+                          "type": "ChangeCount",
+                          "value": "1",
+                          "cooldown": "PT5M"
+                      },
+                      "metricTrigger": {
+                          "metricName": "Available Memory Bytes",
+                          "metricNamespace": "microsoft.compute/virtualmachinescalesets",
+                          "metricResourceUri": "/subscriptions/82808767-144c-4c66-a320-b30791668b0a/resourceGroups/hr-dev-rg-tceaqd/providers/Microsoft.Compute/virtualMachineScaleSets/hr-dev-web-vmss",
+                          "operator": "GreaterThan",
+                          "statistic": "Average",
+                          "threshold": 2147483648,
+                          "timeAggregation": "Average",
+                          "timeGrain": "PT1M",
+                          "timeWindow": "PT5M",
+                          "Dimensions": [],
+                          "dividePerInstance": false
+                      }
+                  },
+                  {
+                      "scaleAction": {
+                          "direction": "Increase",
+                          "type": "ChangeCount",
+                          "value": "1",
+                          "cooldown": "PT5M"
+                      },
+                      "metricTrigger": {
+                          "metricName": "SYNCount",
+                          "metricNamespace": "Microsoft.Network/loadBalancers",
+                          "metricResourceUri": "/subscriptions/82808767-144c-4c66-a320-b30791668b0a/resourceGroups/hr-dev-rg-tceaqd/providers/Microsoft.Network/loadBalancers/hr-dev-web-lb",
+                          "operator": "GreaterThan",
+                          "statistic": "Average",
+                          "threshold": 10,
+                          "timeAggregation": "Average",
+                          "timeGrain": "PT1M",
+                          "timeWindow": "PT5M",
+                          "Dimensions": [],
+                          "dividePerInstance": false
+                      }
+                  },
+                  {
+                      "scaleAction": {
+                          "direction": "Decrease",
+                          "type": "ChangeCount",
+                          "value": "1",
+                          "cooldown": "PT5M"
+                      },
+                      "metricTrigger": {
+                          "metricName": "SYNCount",
+                          "metricNamespace": "Microsoft.Network/loadBalancers",
+                          "metricResourceUri": "/subscriptions/82808767-144c-4c66-a320-b30791668b0a/resourceGroups/hr-dev-rg-tceaqd/providers/Microsoft.Network/loadBalancers/hr-dev-web-lb",
+                          "operator": "LessThan",
+                          "statistic": "Average",
+                          "threshold": 10,
+                          "timeAggregation": "Average",
+                          "timeGrain": "PT1M",
+                          "timeWindow": "PT5M",
+                          "Dimensions": [],
+                          "dividePerInstance": false
+                      }
+                  }
+              ]
+          }
+      ],
+      "notifications": [
+          {
+              "operation": "Scale",
+              "email": {
+                  "sendToSubscriptionAdministrator": true,
+                  "sendToSubscriptionCoAdministrators": true,
+                  "customEmails": [
+                      "myadminteam@ourorg.com"
+                  ]
+              },
+              "webhooks": []
+          }
+      ],
+      "targetResourceLocation": "eastus"
+  },
+  "id": "/subscriptions/82808767-144c-4c66-a320-b30791668b0a/resourceGroups/hr-dev-rg-tceaqd/providers/microsoft.insights/autoscalesettings/hr-dev-web-vmss-autoscale-profiles",
+  "name": "hr-dev-web-vmss-autoscale-profiles",
+  "type": "Microsoft.Insights/autoscaleSettings"
+}
