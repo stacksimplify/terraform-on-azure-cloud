@@ -33,7 +33,7 @@ ssh-keygen \
     -b 4096 \
     -C "azureuser@myserver" \
     -f terraform-azure.pem 
-Important Note: If you give passphrase during generation, during everytime you login to VM, you also need to provide passphrase.
+Important Note: Please don't provide any passhprase, as the passphrase is not supported on latest provider versions
 
 # List Files
 ls -lrt ssh-keys/
