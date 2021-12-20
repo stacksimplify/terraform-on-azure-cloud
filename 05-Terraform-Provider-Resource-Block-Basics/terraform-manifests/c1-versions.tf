@@ -10,6 +10,10 @@ terraform {
       #version = ">= 2.0.0, <= 2.64.0"   
       #version = "~> 2.64" # For Production grade              
     }
+    aws = {
+      source = "hashicorp/aws"
+      version = ">=2.0"
+    }
   }
 }
 # Provider Block
