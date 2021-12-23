@@ -10,13 +10,13 @@ terraform {
   }
   # Terraform State Storage to Azure Storage Container
   backend "azurerm" { 
-    resource_group_name   = "terraform-storage-rg"
+    resource_group_name   = "test-rg"
     storage_account_name  = "terraformstate201"
     container_name        = "tfstatefiles"
     key                   = "terraform.tfstate"
   }  
   experiments = [ example ]# Experimental (Not required)
   provider_meta "my-provider" { # Super Advanced (Not required)
-    hello = "world"
+   hello = "world"
   }
 }
