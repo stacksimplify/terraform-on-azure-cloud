@@ -10,6 +10,7 @@ jobs:
     name: Terraform
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -28,7 +29,7 @@ jobs:
         id: validate
         run: terraform validate -no-color
 
-      - name: Terraform Plan
-        id: plan
-        run: terraform plan -no-color -input=false
-        continue-on-error: true
+#      - name: Terraform Plan
+#        id: plan
+#        run: terraform plan -no-color -input=false
+#        continue-on-error: true
