@@ -7,18 +7,18 @@ jobs:
     name: Super-Linter
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout Repository
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 1
+
       - name: Lint Code
         uses: docker://github/super-linter:v4
         env:
-          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: "main"
           DISABLE_ERRORS: false
-          VALIDATE_BASH: false
-          VALIDATE_JSON: false
-          VALIDATE_MD: false
-          VALIDATE_TERRAFORM: false
-          VALIDATE_YAML: false
+          VALIDATE_BASH: true
+          VALIDATE_JSON: true
+          VALIDATE_MD: true
+          VALIDATE_TERRAFORM: true
+          VALIDATE_YAML: true
