@@ -21,11 +21,11 @@ locals {
 
 # Resource-2: Add Static html files to blob storage
 resource "azurerm_storage_blob" "static_container_blob" {
-  for_each = toset(local.pages)
+  for_each               = toset(local.pages)
   name                   = each.value
   storage_account_name   = azurerm_storage_account.storage_account.name
   storage_container_name = "$web"
   type                   = "Block"
   content_type           = "text/html"
-  source = "${path.module}/custom-error-pages/${each.value}"
+  source                 = "${path.module}/custom-error-pages/${each.value}"
 }
